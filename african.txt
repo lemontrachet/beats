@@ -1,0 +1,85 @@
+live_loop :beat3 do
+  sample :bd_haus
+  sleep 0.1
+  sample :bd_gas
+  sleep 0.1
+  sample :bd_gas
+  sleep 0.1
+  sample :bd_gas
+  sleep 0.1
+  if one_in(3)
+    sample :perc_snap2
+  else
+    sample :bd_808, rate: 10, amp: 3
+  end
+  
+  sleep 0.1
+  sample :perc_snap
+  sleep 0.5
+end
+
+live_loop :b4 do
+  sync :beat3
+  sleep 0.5
+  sample :bd_boom
+  sleep 0.2
+  if one_in(2)
+    sample :bd_fat
+  else
+    sample :bd_klub
+  end
+  sleep 0.4
+end
+
+live_loop :m1 do
+  sync :beat3
+  if one_in(4)
+    sample :elec_flip
+  end
+  if one_in(3)
+    sleep 0.3
+    sample :elec_flip
+  end
+  if one_in(3)
+    sleep 0.3
+    sample :elec_flip
+  end
+end
+
+live_loop :m2 do
+  sync :beat3
+  
+  sleep 0.5
+  sample :bd_ada
+  
+  if one_in(3)
+    sample :elec_plip
+    sleep 0.1
+    
+    sample :elec_tick
+  else
+    sample :elec_flip
+    sleep 0.1
+    sample :bd_sone
+  end
+end
+
+live_loop :b5 do
+  sync :beat3
+  if one_in(4)
+    sample :elec_triangle
+  else
+    if one_in(6)
+      sample :elec_wood
+    end
+  end
+  sleep 4
+  sample :perc_snap
+  sample :perc_snap2
+  sample :tabla_ghe4
+  sample :tabla_na
+end
+
+
+
+

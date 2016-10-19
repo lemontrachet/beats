@@ -1,0 +1,106 @@
+live_loop :click do
+  sleep 0.4
+  sample :perc_snap
+  sleep 0.8
+  sample :perc_snap
+  sleep 0.8
+  sample :perc_snap
+  sleep 0.8
+  sample :perc_snap
+  sleep 0.4
+end
+
+live_loop :long_groove do
+  sync :click
+  
+  sleep 0.2
+  sample :bd_ada
+  sleep 0.1
+  sample :bd_klub
+  sleep 0.1
+  sample :bd_haus
+  sleep 0.1
+  sample :bd_ada
+  sleep 0.1
+  sample :bd_klub
+  sleep 0.1
+  sample :bd_haus
+  sleep 0.1
+  sample :drum_snare_soft
+  sleep 0.2
+  sample :drum_snare_hard
+  sleep 0.2
+  sample :drum_bass_hard
+  if one_in(2)
+    sample :drum_tom_lo_soft
+  end
+  
+  sleep 0.4
+  sample :drum_bass_hard
+  if one_in(2)
+    sample :drum_tom_lo_soft
+  end
+  
+  sleep 0.3
+  sample :drum_splash_soft
+  if one_in(2)
+    sample :drum_tom_mid_hard
+  end
+  
+  sleep 0.2
+  sample :bd_ada
+  sleep 0.1
+  sample :bd_klub
+  sleep 0.1
+  sample :bd_haus
+  sleep 0.1
+  sample :bd_ada
+  sleep 0.1
+  sample :bd_klub
+  sleep 0.1
+  sample :bd_haus
+  sleep 0.4
+  if one_in(2)
+    sample :drum_bass_hard
+  end
+end
+
+
+
+define :nope do
+  
+  sleep 0.3
+  if one_in(2)
+    sample :drum_bass_hard
+  end
+  
+  sleep 0.2
+  if one_in(2)
+    sample :drum_tom_hi_hard
+  end
+  
+  sleep 0.1
+  if one_in(2)
+    sample :drum_tom_hi_hard
+  end
+  
+  sleep 0.1
+  if one_in(2)
+    sample :drum_tom_mid_hard
+  end
+  
+  sleep 0.1
+  if one_in(2)
+    sample :drum_tom_mid_hard
+  end
+  
+  sleep 0.1
+  if one_in(2)
+    sample :drum_tom_lo_hard
+  end
+  
+  sleep 0.1
+  if one_in(2)
+    sample :drum_tom_lo_hard
+  end
+end

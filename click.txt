@@ -1,0 +1,139 @@
+
+define :garzul do
+  with_fx :distortion do
+    with_fx :flanger do
+      4.times do
+        
+        sample :tabla_ghe4, amp: 3
+        sample :loop_garzul, rate: 0.5, pan: rrand(0.5, -0.5)
+        2.times do
+          sample :misc_crow if one_in(3)
+          sample :perc_swash if one_in(5)
+          sample :perc_bell if one_in(2)
+          sample :loop_garzul, rate: 1, attack: 0.2
+          sleep sample_duration :loop_garzul, rate: 2
+        end
+      end
+    end
+    
+  end
+end
+
+
+define :boom do
+  with_fx :flanger, mix: rrand(0, 1) do
+    with_fx :echo, mix: rrand(0, 1) do
+      sample :misc_cineboom, rate: 5, amp: 0.1
+      sample :misc_cineboom, rate: 0.5, amp: 0.1
+      sample :misc_cineboom, norm: 1, amp: 0.1
+    end
+  end
+end
+
+
+
+#sample :bass_hit_c
+#sample :bass_voxy_c
+#sample :bd_ada
+#sample :bd_boom
+#sample :bd_haus
+#sample :bd_klub
+#sample :bd_pure
+#sample :bd_sone
+
+#sample :elec_bong
+#sample :elec_filt_snare
+#sample :elec_plip
+#sample :elec_tick
+#sample :elec_triangle
+#sample :elec_wood
+
+
+
+#sample :elec_hi_snare
+#sample :drum_cymbal_open, attack: 0.01, sustain: 0.3, release: 0.1
+#sample :perc_snap
+#sample :perc_snap2
+#sample :tabla_ghe4
+#sample :tabla_na
+
+define :click do
+  in_thread do
+    
+    16.times do
+      sample :perc_snap
+      sleep 0.6
+      sample :perc_snap2
+      sleep 0.2
+      sample :perc_snap
+      sleep 0.2
+      sample :perc_snap
+      sleep 0.2
+      sample :perc_snap2
+      sleep 0.4
+    end
+  end
+  in_thread do
+    21.times do
+      sleep 1.2
+      sample :elec_tick
+    end
+  end
+  in_thread do
+    16.times do
+      sleep 1
+      sample :elec_triangle
+      sample :elec_wood if one_in(6)
+    end
+  end
+  in_thread do
+    20.times do
+      sleep 1.6
+      sample :bd_pure
+      sample :elec_bong if one_in(6)
+    end
+  end
+  in_thread do
+    sleep 0.8
+    16.times do
+      sleep 0.8
+      sample :bd_haus
+    end
+  end
+  in_thread do
+    sleep 3.2
+    sample :elec_bong
+    16.times do
+      sample :tabla_ghe4
+      sleep 0.2
+      sample :tabla_na
+      sleep 0.8
+    end
+  end
+  in_thread do
+    4.times do
+      sleep 4.8
+      
+      sleep 4.8
+    end
+  end
+end
+
+define :eerie_sound do
+  with_fx :reverb do
+    with_fx :distortion do
+      use_synth :dark_ambience
+      p = play 60, release: 4, note_slide: 0.4, amp: 2
+      sleep 0.3
+      control p, note: 64
+      sample :guit_e_fifths, amp: 0.2
+      play :c, pan: -1, amp: 0.2
+      sleep 0.3
+      play 60, slide: 70, pan: rrand(-1, 1), amp: 0.2
+      sleep 0.6
+      play 60, slide: rrand(60, 66), attack: 0.2, release: 1, pan: 1, amp: 0.4
+    end
+  end
+end
+
+click

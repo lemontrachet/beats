@@ -1,0 +1,82 @@
+live_loop :backbeat do
+  
+  sample :bd_boom
+  sleep 0.1
+  sample :drum_heavy_kick
+  sleep 0.9
+  sample :drum_snare_hard
+  sleep 0.9
+  
+end
+
+live_loop :hat do
+  sync :backbeat
+  sample :drum_cymbal_closed
+  sleep 0.1
+  sample :elec_tick
+  sleep 0.3
+  #sample :drum_cymbal_pedal
+  sleep 0.1
+  sample :drum_cymbal_pedal
+  sample :elec_plip
+  sleep 0.2
+  #sample :drum_cymbal_pedal
+  #sleep 0.1
+  #sample :drum_cymbal_closed
+  sleep 0.2
+  sample :drum_cymbal_pedal
+  sleep 0.2
+  #sample :drum_cymbal_pedal
+  sleep 0.2
+  sample :elec_tick
+  sleep 0.1
+  if one_in(3)
+    sample :elec_bong
+  end
+  if one_in(3)
+    sample :elec_triangle
+    if one_in(4)
+      sample :misc_crow
+    end
+    
+  else
+    sample :bd_ada
+  end
+  
+end
+
+live_loop :crash do
+  sync :backbeat
+  sample :drum_cymbal_soft
+  sample :elec_bong
+  sleep 6
+end
+
+live_loop :synco do
+  sync :backbeat
+  if one_in(6)
+    sleep 0.3
+    sample :tabla_ghe7
+    sleep 0.2
+    sample :tabla_ghe7
+    sleep 0.1
+    sample :tabla_ghe8
+    sleep 0.1
+  end
+  
+  if one_in(8)
+    sleep 0.3
+    sample :elec_plip
+    sample :tabla_tun3
+  else
+    if one_in(2)
+      sleep 0.3
+      sample :tabla_dhec
+    end
+    
+  end
+end
+
+
+
+
